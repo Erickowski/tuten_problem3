@@ -1,43 +1,21 @@
-import React, { useState } from "react";
-import Axios from "axios";
-import "./css/App.css";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import AuthState from "./context/auth/authState";
+
+import Login from "./components/Login";
+import Home from "./components/Home";
 
 const App = () => {
-  const [user, setUser] = useState("");
-  const [password, setPassword] = useState("");
-  const [token, setToken] = useState("");
-  const [error, setError] = useState(false);
-
-  const submitLogin = (e) => {
-    e.preventDefault();
-    console.log("Iniciar sesion");
-  };
-
   return (
-    <form onSubmit={submitLogin}>
-      <h1>Login</h1>
-      <div>
-        <label htmlFor="user">Usuario: </label>
-        <input
-          type="text"
-          name="user"
-          id="user"
-          value={user}
-          onChange={(e) => setUser(e.target.value)}
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Password: </label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
-      <input type="submit" value="Iniciar sesion" />
-    </form>
+    <AuthState>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <Route exact path="/home" component={Home} />
+        </Switch>
+      </Router>
+    </AuthState>
   );
 };
 
