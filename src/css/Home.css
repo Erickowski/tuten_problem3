@@ -1,0 +1,9 @@
+.home__container {
+  padding: 10px;
+}
+.home__container h2 {
+  text-align: center;
+}
+.books__container {
+  display: flex;
+}

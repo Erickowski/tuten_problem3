@@ -1,0 +1,17 @@
+.book__card {
+  width: 20vw;
+  padding: 10px;
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.book__card p {
+  font-weight: bold;
+}
+
+.book__card p span {
+  font-weight: normal;
+}

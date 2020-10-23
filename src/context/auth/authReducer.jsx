@@ -1,6 +1,6 @@
 import { OBTENER_TOKEN } from "../../types";
 
-export default (state, action) => {
+const AuthReducer = (state, action) => {
   switch (action.type) {
     case OBTENER_TOKEN:
       return {
@@ -11,3 +11,5 @@ export default (state, action) => {
       return state;
   }
 };
+
+export default AuthReducer;
