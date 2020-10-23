@@ -76,6 +76,32 @@ const Home = () => {
           book.bookingId.toString().includes(filter.textFilter)
         )
       );
+    } else {
+      switch (filter.typeFilter) {
+        case "=":
+          setFilteredBooks(
+            books.filter(
+              (book) => book.bookingPrice === Number(filter.textFilter)
+            )
+          );
+          return;
+        case ">=":
+          setFilteredBooks(
+            books.filter(
+              (book) => book.bookingPrice >= Number(filter.textFilter)
+            )
+          );
+          return;
+        case "<=":
+          setFilteredBooks(
+            books.filter(
+              (book) => book.bookingPrice <= Number(filter.textFilter)
+            )
+          );
+          return;
+        default:
+          return;
+      }
     }
   };
 
@@ -110,7 +136,7 @@ const Home = () => {
               onChange={(e) => handleChange(e)}
             >
               <option value="">--Selecciona--</option>
-              <option value="===">Igual</option>
+              <option value="=">Igual</option>
               <option value=">=">Mayor que</option>
               <option value="<=">Menor que</option>
             </select>
@@ -135,6 +161,7 @@ const Home = () => {
       </div>
       <div className="books__container">
         {books.length === 0 && <p>Cargando...</p>}
+        {filteredBooks.length === 0 && <p>No hay resultados</p>}
         {filteredBooks.map((book) => (
           <Book key={book.bookingId} book={book} />
         ))}
