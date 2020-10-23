@@ -4,6 +4,11 @@
 .home__container h2 {
   text-align: center;
 }
+.filter__container {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
 .books__container {
   display: flex;
 }
