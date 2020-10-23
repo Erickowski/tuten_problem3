@@ -23,3 +23,4 @@ $ npm run build
 - CSS
 
 ## 💣 Despliegue
+https://hardcore-curie-6b7bd5.netlify.app/
